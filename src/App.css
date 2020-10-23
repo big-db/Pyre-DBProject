@@ -1,0 +1,20 @@
+@font-face{
+    font-family: "OldStandardTT";
+    src: url('./assets/fonts/OldStandardTT-Regular.ttf');
+}
+
+@font-face{
+    font-family: "OldStandardTT-Bold";
+    src: url('./assets/fonts/OldStandardTT-Bold.ttf');
+    font-weight: bold;
+}
+
+@font-face{
+    font-family: "OldStandardTT-Italic";
+    src: url('./assets/fonts/OldStandardTT-Italic.ttf');
+    font-style: italic;
+}
+@font-face{
+    font-family: "Coolvetica";
+    src: url('./assets/fonts/coolveticarg.ttf');
+}
