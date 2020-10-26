@@ -2,52 +2,38 @@
     width:96%;
     height:6%;
     position:fixed;
-    padding-top: 2%;
-    padding-left:2%;
-    padding-right:2%;
+    padding: 2%;
     display: flex;
     flex-direction: row;
     flex-wrap: nowrap;
     justify-content: space-between;
     font-size: 3vh;
+    align-content: center;
 }
 .navBar a{
     text-decoration: none;
 }
 
-.navBarRed{
-    width:96%;
-    height:6%;
-    position:fixed;
-    padding:2% 2% 1% 2% ;
-    display: flex;
-    background-color: #C90000;
-    flex-direction: row;
-    flex-wrap: nowrap;
-    justify-content: space-between;
-    font-size: 3vh;
-}
 
-.navBarRed{
+.navBarSigned{
     width:96%;
-    height:5%;
+    height:4%;
     position:fixed;
-    padding:1% 2% 1% 2% ;
+    padding: 2%;
     display: flex;
-    background-color: #C90000;
     flex-direction: row;
     flex-wrap: nowrap;
     justify-content: space-between;
     font-family: 'Coolvetica';
     font-size: 2vh;
     align-content: center;
-    color:white;
 }
 
-.navBarRed a{
+.navBarSigned a{
     text-decoration: none;
-    color:white;
+    color: black;
     margin-right: 2vh;
+    padding: 1%;
 }
 .navLinks{
     display: flex;
@@ -70,11 +56,3 @@
     transition: 0.2s all;
 }
 
-.searchBar{
-    width:40vw;
-    padding:1%;
-    height:2vh;
-    margin-right:10px;
-    color:#F5902A;
-    background-color: white;
-}

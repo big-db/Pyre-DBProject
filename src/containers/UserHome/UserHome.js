@@ -3,6 +3,7 @@ import { withRouter} from 'react-router';
 import SimplifiedBook from '../../components/Book/SimplifiedBook';
 import NavBar from '../../components/NavBar/NavBar';
 import './UserHome.css';
+import Wave from 'react-wavify';
 class UserHome extends Component{
     constructor(props) {
         super(props);
@@ -36,15 +37,25 @@ class UserHome extends Component{
         return(
             <div>
                 <NavBar userID={this.state.userID}/>
+                <div className="waveTop">
+                    <Wave fill='#C90000'
+                    paused={false}
+                    options={{
+                        height: 10,
+                        amplitude: 8,
+                        speed: 0.3,
+                        points: 5
+                    }}
+                />
+                </div>
                <div className="UserHome">
-                   <div>
-                       Welcome Back, {this.state.userID}
-                    </div> 
-                    <div>
-                        Read a book not seen here?  <button>add book to our library</button>
-                    </div>
-                   <div>
                    
+                   <div>
+                   Welcome Back, {this.state.userID}
+                        <div>
+                        Read a book not seen here?  <button>add book to our library</button>
+                        </div>
+                   </div>
                    <div className="userhomeRecommendSubtitle">
                         Recommended books for you
                     </div>
@@ -57,7 +68,7 @@ class UserHome extends Component{
                         }
                         })}
                     </div>
-                    </div>
+                    
                </div>
                
             </div>

@@ -7,9 +7,15 @@ class SignInModal extends Component{
             username: "",
             password: "",
         }
+        this.validateForm = this.validateForm.bind(this);
+        this.updateUserInput = this.updateUserInput.bind(this);
+        this.updatePWInput = this.updatePWInput.bind(this);
+        
     }
+    
     validateForm(){
-        return this.st
+        console.log(this.state.username);
+        window.location.replace("http://localhost:3000/home/" + this.state.username);
     }
 
     updateUserInput(input){
@@ -22,9 +28,9 @@ class SignInModal extends Component{
     render(){
         return <div className="signInModal">
             <button className="closeButton" onClick={this.props.clickHandler}>Close</button>
-            <form className="signInDetails">
-                <input onChange={e => this.updateUserInput(e.target.value)} type="text" placeholder="Username" value={this.state.username}></input>
-                <input onChange={e => this.updatePWInput(e.target.value)} type="password" placeholder="Password" value={this.state.password}></input>
+            <form className="signInDetails" onSubmit={()=>this.validateForm()}>
+                <input onChange={e => this.updateUserInput(e.target.value)} type="text" placeholder="Username" value={this.state.username} required></input>
+                <input onChange={e => this.updatePWInput(e.target.value)} type="password" placeholder="Password" value={this.state.password} required></input>
                 <input type ="submit"/>
             </form>
             
