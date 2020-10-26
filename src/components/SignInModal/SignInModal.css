@@ -24,12 +24,12 @@
 
 .closeButton{
     position: absolute;
-    right:1%;
-    top:1%;
+    right:3%;
+    top:3%;
     color:white;
     background-color: transparent;
     font-size: 3vh;
-    font-family: "OldStandardTT";
+    font-family: "Coolvetica";
     border:none;
 
 }
