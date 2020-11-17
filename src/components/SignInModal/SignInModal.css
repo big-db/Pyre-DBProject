@@ -7,15 +7,15 @@
     
 }
 
-.signInDetails input{
-    margin:1%;
+.inputDetails{
+    margin:2%;
     padding:10px;
     font-family: "OldStandardTT";
+    
 }
 
 .signInDetails{
-    height:100%;
-    width:100%;
+    padding: 2vh;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -24,21 +24,47 @@
 
 .closeButton{
     position: absolute;
-    right:3%;
-    top:3%;
-    color:white;
-    background-color: transparent;
+    right:4%;
+    top:4%;
+    color:#C90000;
+    background-color: white;
+    border-radius: 3vh;
     font-size: 3vh;
     font-family: "Coolvetica";
     border:none;
+    padding: 9px 15px 9px 15px;
 
 }
 
 .closeButton:hover{
     transform: scale(1.2);
 }
-.signInDetails a{
-    text-decoration: none;
+.submitButton{
+    font-family: "Coolvetica";
     color:white;
-    font-family: "OldStandardTT";
+    background-color: #C90000;
+    border:none;
+}
+.submitButton:hover{
+    transform: scale(1.2);
+}
+.signInDetails input{
+    font-size: 3vh;
+}
+.userInteractions{
+    height:100%;
+    width:100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+.stateChangeButton{
+    color:#C90000;
+    background-color: white;
+    border-radius: 3vh;
+    font-size: 3vh;
+    font-family: "Coolvetica";
+    border:none;
+    padding: 9px 15px 9px 15px;
 }

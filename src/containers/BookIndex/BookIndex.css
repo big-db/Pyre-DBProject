@@ -1,4 +1,4 @@
-.UserHome{
+.BookIndex{
     position: fixed;
     top:14vh;
     height:86%;
@@ -15,50 +15,10 @@
     background-color: #C90000;
 }
 
-.UserHomeTitle{
+.BookIndexTitle{
     padding: 1% 0% 1% 0%;
     display: flex;
     flex-direction: column;
-}
-
-.addBookButton{
-    background-color: transparent;
-    border:none;
-    font-family: 'Coolvetica';
-    padding:0;
-    color:white;
-    text-decoration: underline;
-    font-size: 3vh;
-}
-
-.addBookButton:hover{
-    color:#FFC123; 
-}
-
-.userHomeMainRecommend{
-    height:35%;
-    align-content: center;
-    justify-content: flex-start;
-    display: flex;
-    flex-direction: row;
-    
-}
-
-
-.userRecommendList{
-    height:35%;
-    align-content: center;
-    justify-content: flex-start;
-    display: flex;
-    flex-direction: row;
-    
-}
-.userhomeRecommendSubtitle{
-    padding: 0.75vh 0vh 0.75vh 0vh;
-    font-family: 'OldStandardTT';
-    font-size: 3vh;
-    color:white;
-    text-align: start;
 }
 
 .waveTop{
@@ -66,4 +26,28 @@
     top: 10vh;
     z-index: 0;
     width: 100%;
+}
+
+.BookDesc{
+    height:50%;
+    align-content: center;
+    justify-content: flex-start;
+    display: flex;
+    flex-direction: row;
+   
+}
+.BooksAdditional{
+    height:35%;
+    align-content: center;
+    justify-content: flex-start;
+    display: flex;
+    flex-direction: row;
+}
+
+.ReviewAdditional{
+    height:35%;
+    align-content: center;
+    justify-content: flex-start;
+    display: flex;
+    flex-direction: row;
 }

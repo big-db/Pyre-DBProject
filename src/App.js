@@ -5,11 +5,11 @@ import {
   BrowserRouter as Router,
   Switch,
   Route,
-  Link
 } from 'react-router-dom'
 import UserHome from './containers/UserHome/UserHome';
 import UserProfile from './containers/UserProfile/UserProfile';
 import Bonfire from './containers/Bonfire/Bonfire';
+import BookIndex from './containers/BookIndex/BookIndex';
 
 class App extends Component {
   constructor(props){
@@ -40,10 +40,11 @@ class App extends Component {
             <Route exact path="/">
               <Home window={this.state.window}/>
             </Route>
-            <Route exact path="/home/:userID" children={<UserHome window={this.state.window} />}/>
-            <Route exact path="/bonfire" children={<Bonfire/>}/>
+            <Route exact path="/home" children={<UserHome window={this.state.window} />}/>
+            <Route exact path="/bonfire" children={<Bonfire window={this.state.window}/>}/>
             <Route exact path="/bonfire/search/:params" children={<Bonfire/>}/>
             <Route exact path="/user/:userID" children={<UserProfile window={this.state.window}/>}/>
+            <Route exact path="/book/:bookID" children={<BookIndex window={this.state.window}/>}/>
           </Switch>
       </Router>
     );

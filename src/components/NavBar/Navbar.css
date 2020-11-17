@@ -1,8 +1,8 @@
 .navBar{
-    width:96%;
+    width:92%;
     height:6%;
     position:fixed;
-    padding: 2%;
+    padding: 2% 4% 2% 4%;
     display: flex;
     flex-direction: row;
     flex-wrap: nowrap;
@@ -12,14 +12,17 @@
 }
 .navBar a{
     text-decoration: none;
+    color:black
+}
+.navBar a:hover{
+    color:#FFC123;
 }
 
-
 .navBarSigned{
-    width:96%;
-    height:4%;
+    width:92%;
+    height:6%;
     position:fixed;
-    padding: 2%;
+    padding: 2% 4% 2% 4%;
     display: flex;
     flex-direction: row;
     flex-wrap: nowrap;
@@ -35,12 +38,18 @@
     margin-right: 2vh;
     padding: 1%;
 }
+
+.navBarSigned a:hover{
+    color:#FFC123;
+}
+
 .navLinks{
     display: flex;
     flex-direction: row;
     justify-content: center;
     align-self: center;
 }
+
 
 .signInModalButton{
     background-color: transparent;
