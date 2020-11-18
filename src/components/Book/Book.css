@@ -1,6 +1,6 @@
 .Book{
-    margin:2%;
-    height:60%;
+    margin: 1% 0.75% 1% 0.75%;
+    height:75%;
     padding:1%;
     background-color: white;
     box-shadow: 5px 5px black;
@@ -10,11 +10,84 @@
     flex-direction: row;
     font-family: "OldStandardTT";
     text-decoration: none;
-    
 }
 .Review{
-    height:60%;
+    margin: 1% 0% 1% 0%;
+    height:75%;
     text-align: justify;
     display: flex;
     flex-direction: column;
+    color:white;
+}
+
+.BookReview{
+    height:100%;
+    width:75%;
+    display: flex;
+    flex-direction: row;
+    font-family: "OldStandardTT";
+    text-decoration: none;
+}
+.BookWDescript{
+    height:100%;
+    width:100%;
+    display: flex;
+    flex-direction: row;
+    font-family: "OldStandardTT";
+    text-decoration: none;
+}
+.Sub{
+    margin: 1% 0% 1% 0%;
+    height:75%;
+    padding:1%;
+    font-size: 2vh;
+    text-align: start;
+    display: flex;
+    flex-direction: column;
+    color:white;
+}
+
+.readMoreButton{
+    padding: 9px 15px 7px 15px;
+    border:none;
+    border-radius: 20px;
+    font-family: 'OldStandardTT';
+}
+.readMoreButton:hover{
+    background-color:#FFC123; 
+}
+.TitleAuthor{
+    font-family:"Coolvetica";
+}
+.BookTitle{
+    font-size: 3vh;
+}
+.BookAuthor{
+    font-size: 2.5vh;
+}
+.Description{
+    max-width: 600px;
+}
+.BookPrice{
+    font-size: 3vh;
+    background-color: white;
+    color:#C90000;
+    padding:9px 15px 9px 15px;
+    border-radius: 10px;
+
+}
+.BookHeader{
+    font-family: "Coolvetica";
+    width:90%;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 0.5%;
+}
+.FullDescription{
+    height:100%;
+    max-width: 90%;
+    text-align: justify;
 }

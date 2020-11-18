@@ -1,0 +1,16 @@
+.searchBar{
+    width:30vw;
+    padding:.7% 2% .7% 2%;
+    font-size: 2vh;
+    margin-right:10px;
+    color:white;
+    border-radius: 50px;
+    border: 2px solid #C90000;
+    background-color: #C90000;
+    font-family: "OldStandardTT";
+}
+
+.searchBar::placeholder{
+    color:white;
+}
+
