@@ -19,3 +19,25 @@
     src: url('./assets/fonts/coolveticarg.ttf');
 }
 
+@font-face{
+    font-family: "Konstructor";
+    src: url('./assets/fonts/KonstruktorRegular.ttf');
+}
+
+/* width */
+::-webkit-scrollbar {
+    width: 10px;
+  }
+  
+  
+   
+  /* Handle */
+  ::-webkit-scrollbar-thumb {
+    background: white; 
+    border-radius: 10px;
+  }
+  
+  /* Handle on hover */
+  ::-webkit-scrollbar-thumb:hover {
+    background: #DDDDDD; 
+  }

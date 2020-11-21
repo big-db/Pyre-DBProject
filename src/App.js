@@ -34,6 +34,7 @@ class App extends Component {
     });  
   }
   render(){
+    
     return (
       <Router>
           <Switch>
@@ -41,8 +42,8 @@ class App extends Component {
               <Home window={this.state.window}/>
             </Route>
             <Route exact path="/home" children={<UserHome window={this.state.window} />}/>
-            <Route exact path="/bonfire" children={<Bonfire window={this.state.window}/>}/>
-            <Route exact path="/bonfire/search/:params" children={<Bonfire/>}/>
+            <Route exact path="/bonfire" children={<Bonfire window={this.state.window} search={false}/>}/>
+            <Route exact path="/bonfire/search/:args" children={<Bonfire window={this.state.window} search={true}/>}/>
             <Route exact path="/user/:userID" children={<UserProfile window={this.state.window}/>}/>
             <Route exact path="/book/:bookID" children={<BookIndex window={this.state.window}/>}/>
           </Switch>
