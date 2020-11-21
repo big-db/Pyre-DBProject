@@ -50,6 +50,8 @@
 .readMoreButton{
     padding: 9px 15px 7px 15px;
     border:none;
+    color:black;
+    background-color: white;
     border-radius: 20px;
     font-family: 'OldStandardTT';
 }

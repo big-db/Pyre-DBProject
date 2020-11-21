@@ -9,7 +9,6 @@
     background-color: #C90000;
     font-family: "OldStandardTT";
 }
-
 .searchBar::placeholder{
     color:white;
 }
