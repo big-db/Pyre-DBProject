@@ -26,3 +26,5 @@ yarn --silent
 echo "Setting nginx configs ..."
 sed -i '1idaemon off;' /etc/nginx/nginx.conf
 cp nginx.conf /etc/nginx/sites-available/default
+
+service nginx stop
