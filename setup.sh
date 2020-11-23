@@ -28,3 +28,11 @@ sed -i '1idaemon off;' /etc/nginx/nginx.conf
 cp nginx.conf /etc/nginx/sites-available/default
 
 service nginx stop
+
+echo "Loading Configs ..."
+node loadConfig.js
+
+echo "Building App ..."
+yarn build
+
+cp -r build /app
