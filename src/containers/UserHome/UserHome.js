@@ -5,11 +5,14 @@ import NavBar from '../../components/NavBar/NavBar';
 import './UserHome.css';
 import Wave from 'react-wavify';
 import BookWDescript from '../../components/Book/BookWDescript';
+import { CSSTransition } from 'react-transition-group';
+import AddBookModal from '../../components/AddBookModal/AddBookModal';
 class UserHome extends Component{
     constructor(props) {
         super(props);
         this.state = {
             userID:this.props.match.params.userID,
+            addBookModal: false,
             recommend:{
                 title:"1984",
                 price: "$9.56",
@@ -61,10 +64,26 @@ class UserHome extends Component{
                 },
             ]
         }
+        this.addBlockModalHandler = this.addBlockModalHandler.bind(this);
     }
+
+    addBlockModalHandler(){
+        this.setState({
+           addBookModal: !this.state.addBookModal,
+        })
+    }
+
     render(){
         return(
             <div>
+                <CSSTransition
+                in={this.state.addBookModal}
+                timeout={300}
+                classNames="signModal"
+                unmountOnExit
+                >
+                    <AddBookModal clickHandler={this.addBlockModalHandler} />
+                </CSSTransition>
                 <NavBar userID={this.state.userID}/>
                 <div className="waveTop">
                     <Wave fill='#C90000'
@@ -82,7 +101,7 @@ class UserHome extends Component{
                    <div className="UserHomeTitle"> 
                         Welcome Back, {this.state.userID}
                         <div>
-                            Read a book not seen here?  <button className="addBookButton">add it to our collection here</button>
+                            Read a book not seen here?  <button className="addBookButton" onClick={this.addBlockModalHandler}>add it to our collection here</button>
                         </div>
                    </div>
                    <div className="userhomeRecommendSubtitle">

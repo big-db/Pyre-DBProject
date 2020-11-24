@@ -80,6 +80,30 @@ class BookIndex extends Component{
                     summary: "I really liked it.",
                     reviewText: "I'd never read any of the Amy Brewster mysteries until this one.. So I am really hooked on them now...",
                     reviewerName:"Elaine H. Turley (Montana Songbird)"
+                },
+                {
+                    overall: 5,
+                    summary: "I really liked it.",
+                    reviewText: "I'd never read any of the Amy Brewster mysteries until this one.. So I am really hooked on them now...",
+                    reviewerName:"Elaine H. Turley (Montana Songbird)"
+                },
+                {
+                    overall: 5,
+                    summary: "I really liked it.",
+                    reviewText: "I'd never read any of the Amy Brewster mysteries until this one.. So I am really hooked on them now...",
+                    reviewerName:"Elaine H. Turley (Montana Songbird)"
+                },
+                {
+                    overall: 5,
+                    summary: "I really liked it.",
+                    reviewText: "I'd never read any of the Amy Brewster mysteries until this one.. So I am really hooked on them now...",
+                    reviewerName:"Elaine H. Turley (Montana Songbird)"
+                },
+                {
+                    overall: 5,
+                    summary: "I really liked it.",
+                    reviewText: "I'd never read any of the Amy Brewster mysteries until this one.. So I am really hooked on them now...",
+                    reviewerName:"Elaine H. Turley (Montana Songbird)"
                 }
                 
             ]

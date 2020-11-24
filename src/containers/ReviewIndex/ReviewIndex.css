@@ -1,4 +1,4 @@
-.BookIndex{
+.ReviewIndex{
     position: fixed;
     top:14vh;
     height:86%;
@@ -15,7 +15,7 @@
     background-color: #C90000;
 }
 
-.BookIndexTitle{
+.ReviewIndexTitle{
     padding: 1% 0% 1% 0%;
     display: flex;
     flex-direction: column;
@@ -28,27 +28,10 @@
     width: 100%;
 }
 
-.BookDesc{
-    height:45%;
+.ReviewIndexDesc{
+    height:80%;
     align-content: center;
     justify-content: flex-start;
     display: flex;
     flex-direction: row;
-   
-}
-.BooksAdditional{
-    height:37%;
-    align-content: center;
-    justify-content: flex-start;
-    display: flex;
-    flex-direction: row;
-}
-
-.ReviewAdditional{
-    height:37%;
-    align-content: center;
-    justify-content: flex-start;
-    display: flex;
-    flex-direction: column;
-    overflow: auto;
 }
