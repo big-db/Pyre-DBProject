@@ -1,6 +1,22 @@
 .SimplifiedReview{
     display: flex;
-    width:35vh;
+    width:80vh;
+    padding: 0.05%;
+    flex-direction: column; 
+    margin: 1% 0% 1% 0.75%;
+    background-color: white;
+    box-shadow: 5px 5px black;
+    border: 1px solid black;
+    border-radius: 10px;
+    color:black;
+    padding: 1%;
+    justify-content: space-between;
+    text-decoration: none;
+}
+.FullReview{
+    display: flex;
+    width:80vh;
+    padding: 0.05%;
     flex-direction: column; 
     margin: 1% 0% 1% 0.75%;
     background-color: white;
@@ -21,4 +37,7 @@
 .Flame{
     padding:0.5%;
     width: 2vh;
+}
+.ReviewText{
+    font-size: 2vh;
 }

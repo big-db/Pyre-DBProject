@@ -10,11 +10,11 @@ class NavBar extends Component{
         
         return(
                 <div className="navBarSigned">
-                    <img height="100%" src={isMobile ? IconSmallLight: IconFullLight} alt="brand"/>
+                    <a href={"/"}><img height="100%" src={isMobile ? IconSmallLight: IconFullLight} alt="brand"/> </a>
                     <div className="navLinks">
                         <SearchBar/>
                         <a href="/bonfire">bonfire</a>
-                        <a href={"/users/"+this.props.userID}>{this.props.userID}</a>
+                        <a href={"/user/12345"}>Caleb</a>
                     </div>
                     
                     

@@ -15,10 +15,10 @@ class BookWDescript extends Component{
     }
     render(){
         let stringCheck = this.stringLengthCheck(this.props.details.description,150)
-        return <div className="BookWDescript" >
-                <a className="Book" href={this.props.details.bookLink}>
+        return <a className="BookWDescript" href={process.env.PUBLIC_URL+'/book/sadlfkmsndklf'}>
+                <div className="Book">
                 <img height="100%" src={this.props.details.imageLink} alt={this.props.details.title + "Book image"}/>
-                </a>
+                </div>
                 
                 <div className="Sub">
                     <div className="TitleAuthor">
@@ -33,7 +33,7 @@ class BookWDescript extends Component{
                     </div>
                     
                 </div>
-            </div>    
+            </a>    
         
     }
 
