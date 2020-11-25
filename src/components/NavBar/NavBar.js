@@ -10,7 +10,7 @@ class NavBar extends Component{
         
         return(
                 <div className="navBarSigned">
-                    <a href={process.env.PUBLIC_URL}><img height="100%" src={isMobile ? IconSmallLight: IconFullLight} alt="brand"/> </a>
+                    <a href={"/"}><img height="100%" src={isMobile ? IconSmallLight: IconFullLight} alt="brand"/> </a>
                     <div className="navLinks">
                         <SearchBar/>
                         <a href="/bonfire">bonfire</a>
