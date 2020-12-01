@@ -42,6 +42,7 @@
 .Sub{
     margin: 1% 0% 1% 0%;
     height:75%;
+    width:70vh;
     padding:1%;
     font-size: 2vh;
     text-align: start;
@@ -65,10 +66,10 @@
     font-family:"Coolvetica";
 }
 .BookTitle{
-    font-size: 3vh;
+    font-size: 2vh;
 }
 .BookAuthor{
-    font-size: 2.5vh;
+    font-size: 1.5vh;
 }
 .Description{
     max-width: 600px;

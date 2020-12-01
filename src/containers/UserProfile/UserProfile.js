@@ -1,8 +1,9 @@
 import React,{Component} from 'react';
-import { withRouter } from 'react-router';
+import { Redirect, withRouter } from 'react-router';
 import NavBar from '../../components/NavBar/NavBar';
 import './UserProfile.css';
 import Wave from 'react-wavify';
+import { connect } from 'react-redux';
 import SimplifiedReview from '../../components/Review/SimplifiedReview';
 class UserProfile extends Component{
     constructor(props){
@@ -58,9 +59,12 @@ class UserProfile extends Component{
         }
     }
     render(){
+        if(!this.props.user){
+            return <Redirect to="/"/>
+        }
         return (
             <div>
-                <NavBar userID={this.state.userID}/>
+                <NavBar user={this.props.user}/>
                 <div className="waveTop">
                     <Wave fill='#C90000'
                     paused={false}
@@ -73,8 +77,8 @@ class UserProfile extends Component{
                 />
                 </div>
                 <div className="UserProfile">
-                    <div className="UserProfileName">{this.state.reviewerName}</div>
-                    <div className="UserProfileID">{this.state.userID}</div>
+                    <div className="UserProfileName">{this.props.user.name}</div>
+                    <div className="UserProfileID">{this.props.user.id}</div>
                     <div className="UserProfileReview">
                             {this.state.reviews.map((review,index) =>{
                                     return <SimplifiedReview key={index} details ={review}/> 
@@ -86,5 +90,9 @@ class UserProfile extends Component{
         )
     }
 }
-
-export default withRouter(UserProfile);
+const mapStateToProps = state => {
+    console.log(state)
+    return ({
+    user: state.userAuthReducer.user
+  })};
+export default connect(mapStateToProps,null)(withRouter(UserProfile));

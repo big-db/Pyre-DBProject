@@ -7,6 +7,8 @@ import Wave from 'react-wavify';
 import BookWDescript from '../../components/Book/BookWDescript';
 import { CSSTransition } from 'react-transition-group';
 import AddBookModal from '../../components/AddBookModal/AddBookModal';
+import { connect } from 'react-redux';
+import { Redirect } from 'react-router';
 class UserHome extends Component{
     constructor(props) {
         super(props);
@@ -74,6 +76,9 @@ class UserHome extends Component{
     }
 
     render(){
+        if(!this.props.user){
+            return <Redirect to="/"/>
+        }
         return(
             <div>
                 <CSSTransition
@@ -84,7 +89,7 @@ class UserHome extends Component{
                 >
                     <AddBookModal clickHandler={this.addBlockModalHandler} />
                 </CSSTransition>
-                <NavBar userID={this.state.userID}/>
+                <NavBar user={this.props.user}/>
                 <div className="waveTop">
                     <Wave fill='#C90000'
                     paused={false}
@@ -129,5 +134,9 @@ class UserHome extends Component{
     }
     
 }
+const mapStateToProps = state => {
+    return ({
+    user: state.userAuthReducer.user
+  })};
 
-export default withRouter(UserHome);
+export default connect(mapStateToProps,null)(withRouter(UserHome));

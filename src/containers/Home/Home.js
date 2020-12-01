@@ -3,8 +3,11 @@ import Wave from 'react-wavify';
 import SimplifiedBook from '../../components/Book/SimplifiedBook';
 import HomeNavBar from '../../components/NavBar/HomeNavBar';
 import SignInModal from '../../components/SignInModal/SignInModal';
+import { connect } from 'react-redux';
 import { CSSTransition } from 'react-transition-group';
 import './Home.css';
+import { Redirect } from 'react-router';
+import UserProfile from '../UserProfile/UserProfile';
 class Home extends Component{
     constructor(props){
         super(props);
@@ -40,6 +43,11 @@ class Home extends Component{
     }
 
     render(){
+        if(this.props.isAuth){
+            return <Redirect to="/home"/>
+        }else{
+            
+        }
         return <div>
             <HomeNavBar clickHandler={this.signInModalHandler}/>
             <CSSTransition
@@ -111,4 +119,10 @@ class Home extends Component{
     }
 }
 
-export default Home
+const mapStateToProps = state => {
+    return ({
+    isAuth: state.userAuthReducer.userAuth,
+    user: state.userAuthReducer.user
+  })};
+
+export default connect(mapStateToProps,null)(Home)

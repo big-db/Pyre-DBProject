@@ -1,4 +1,6 @@
 import React, {Component} from 'react';
+import {connect} from 'react-redux';
+import { Redirect } from 'react-router';
 import './SearchBar.css';
 class SearchBar extends Component{
     constructor(props){
@@ -10,8 +12,9 @@ class SearchBar extends Component{
         this.updateKeyDown = this.updateKeyDown.bind(this);
     }
     updateKeyDown(event){
-        if(event.key=="Enter"){
-            console.log("Send to search page which calls axios page")
+        if(event.key === "Enter"){
+            console.log("hello search pls")
+            window.location="/bonfire/search/"+this.state.searchInput
         }
     }
     updateSearchInput(input){
@@ -22,4 +25,4 @@ class SearchBar extends Component{
     }
 }
 
-export default SearchBar;
+export default connect(null,null)(SearchBar);

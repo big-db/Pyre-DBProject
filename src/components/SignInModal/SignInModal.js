@@ -1,5 +1,7 @@
 import React,{Component} from 'react';
 import './SignInModal.css'
+import { connect } from 'react-redux';
+import {authCheck} from '../../redux/actions/auth_actions'
 class SignInModal extends Component{
     constructor(props){
         super(props)
@@ -18,25 +20,20 @@ class SignInModal extends Component{
     
     validateForm(e){
         e.preventDefault();
-        let isUserValid = true;
+        console.log(process.env.REACT_APP_API_URL)
+        let isUserValid = false;
         if(this.state.newUserState){
-            //dispatch adduser
-            //dispatch auth user
+            
             if(this.state.password!==this.state.cnfrmPassword){
                 isUserValid = false;
             }
+            //dispatch adduser
+            //dispatch auth user
         }else{
             //dispatch auth user
+            this.props.authCheck(this.state.email,this.state.password)
         }
-        
-        //update isUserValid
-        if (isUserValid){
-            window.location=("http://localhost:3000/home")
-        }else{
-            this.setState({
-                authError: true,
-            })
-        }
+
     }
  
     updateInput(types,input,cnfrm=false){
@@ -62,6 +59,7 @@ class SignInModal extends Component{
     }
     
     render(){
+        
         return <div className="signInModal">
             <button className="closeButton" onClick={this.props.clickHandler}>Close</button>
             {this.state.newUserState ? 
@@ -96,4 +94,6 @@ class SignInModal extends Component{
     }
 }
 
-export default SignInModal
+
+
+export default connect(null,{authCheck})(SignInModal)
