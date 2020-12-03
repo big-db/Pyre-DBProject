@@ -12,6 +12,7 @@ import{
 } from '../actionTypes'
 
 export const getWeekly = () => async dispatch => {
+    console.log(`${process.env.REACT_APP_API_URL}/metadata/weekly`)
     return axios.get(`${process.env.REACT_APP_API_URL}/metadata/weekly`).then( res => {
       dispatch(
           {
