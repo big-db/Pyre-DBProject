@@ -8,7 +8,7 @@ import {
 
 export const getReview = (reviewerID,asin) => async dispatch => {
 
-    return axios.get("\\"+process.env.REACT_APP_API_URL+"/reviews/"+reviewerID+"/"+asin).then(res => {
+    return axios.get(`${process.env.REACT_APP_API_URL}/reviews/${reviewerID}/${asin}`).then(res => {
         dispatch(
             {
                 type: GET_SPECIFIC_REVIEW,
@@ -25,7 +25,7 @@ export const getReview = (reviewerID,asin) => async dispatch => {
 }
 
 export const getBookReview = (asin) => async dispatch => {
-    return axios.get("\\"+process.env.REACT_APP_API_URL+"/reviews/"+asin).then(res => {
+    return axios.get(`${process.env.REACT_APP_API_URL}/reviews/${asin}`).then(res => {
         dispatch(
             {
                 type: GET_BOOK_REVIEWS,
