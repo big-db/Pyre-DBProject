@@ -12,7 +12,7 @@ import{
 } from '../actionTypes'
 
 export const getWeekly = () => async dispatch => {
-    return axios.get(process.env.REACT_APP_API_URL+"/metadata/weekly").then( res => {
+    return axios.get("\\"+process.env.REACT_APP_API_URL+"/metadata/weekly").then( res => {
       dispatch(
           {
               type: GET_WEEKLY,
@@ -29,7 +29,7 @@ export const getWeekly = () => async dispatch => {
 }
 
 export const getBookMeta = (asin) => async dispatch => {
-      return axios.get(process.env.REACT_APP_API_URL+"/metadata/detail/"+asin).then( res => {
+      return axios.get("\\"+process.env.REACT_APP_API_URL+"/metadata/detail/"+asin).then( res => {
         dispatch(
             {
                 type: GET_BOOK,
@@ -46,7 +46,7 @@ export const getBookMeta = (asin) => async dispatch => {
 }
 
 export const getBookImage = (asin) => async dispatch => {
-    return axios.get(process.env.REACT_APP_API_URL+"/metadata/image/"+asin).then( res => {
+    return axios.get("\\"+process.env.REACT_APP_API_URL+"/metadata/image/"+asin).then( res => {
         dispatch(
             {
                 type: GET_BOOK_IMAGE,
@@ -62,7 +62,7 @@ export const getBookImage = (asin) => async dispatch => {
 }
 
 export const searchBook = (page,key,sort) => async dispatch => {
-    return axios.get(process.env.REACT_APP_API_URL+"/metadata/search?"+(key ? "key=" + key+"&":"")+(sort ? "sort=" + sort+"&":"")+"page="+page).then( res => {
+    return axios.get("\\"+process.env.REACT_APP_API_URL+"/metadata/search?"+(key ? "key=" + key+"&":"")+(sort ? "sort=" + sort+"&":"")+"page="+page).then( res => {
         dispatch(
             {
                 type: GET_BOOKS_LIST,
@@ -80,7 +80,7 @@ export const searchBook = (page,key,sort) => async dispatch => {
 
 export const addBook = (book, auth) => async dispatch => {
     try{
-        const res = await axios.post(process.env.REACT_APP_API_URL+"/metadata",{
+        const res = await axios.post("\\"+process.env.REACT_APP_API_URL+"/metadata",{
             auth: {
               username: auth.username,
               password: auth.password,
@@ -103,7 +103,7 @@ export const addBook = (book, auth) => async dispatch => {
 }
 export const getBooksList = (page, modifier) => async dispatch => {
     try{
-        const res = await axios.get(process.env.REACT_APP_API_URL+"/metadata?"+(modifier ? "sort=" + modifier + "&":"")+"page="+page)
+        const res = await axios.get("\\"+process.env.REACT_APP_API_URL+"/metadata?"+(modifier ? "sort=" + modifier + "&":"")+"page="+page)
         dispatch(
             {
                 type: GET_BOOKS_LIST,

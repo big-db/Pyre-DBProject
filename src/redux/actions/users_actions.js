@@ -8,7 +8,7 @@ import {
 
 export const getUser = (reviewerID,asin) => async dispatch => {
     try{
-        const res = await axios.get(process.env.REACT_APP_API_URL+"/"+reviewerID+"/"+asin)
+        const res = await axios.get("\\"+process.env.REACT_APP_API_URL+"/"+reviewerID+"/"+asin)
         dispatch(
             {
                 type: GET_USER,
@@ -30,7 +30,7 @@ export const getUser = (reviewerID,asin) => async dispatch => {
 
 export const updateUser = (user, reviewerID, auth) => async dispatch => {
     try{
-        const res = await axios.put(process.env.REACT_APP_API_URL + "/user/" + reviewerID,{
+        const res = await axios.put("\\"+process.env.REACT_APP_API_URL + "/user/" + reviewerID,{
             auth: {
               username: auth.username,
               password: auth.password,

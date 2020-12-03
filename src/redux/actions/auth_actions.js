@@ -8,7 +8,7 @@ import{
 
 export const authCheck = (email,password) => async dispatch => {
     
-        return axios.post(process.env.REACT_APP_API_URL+"/auth/login",{"email":email,"password":password}).then(res =>{
+        return axios.post("\\"+process.env.REACT_APP_API_URL+"/auth/login",{"email":email,"password":password}).then(res =>{
             console.log(res)
             if(res.status === 200){
                 dispatch(
@@ -29,7 +29,7 @@ export const authCheck = (email,password) => async dispatch => {
 
 export const authSignUp = (email, password, name) => async dispatch => {
     
-    return axios.post(process.env.REACT_APP_API_URL+"/auth/",{"email":email,"password":password,"name":name}).then(res =>{
+    return axios.post("\\"+process.env.REACT_APP_API_URL+"/auth/",{"email":email,"password":password,"name":name}).then(res =>{
         console.log(res)
         if(res.status === 200){
             dispatch(
