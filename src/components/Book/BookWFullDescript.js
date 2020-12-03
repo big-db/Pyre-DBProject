@@ -14,14 +14,14 @@ class BookWFullDescript extends Component{
                 <div className="Sub">
                     <div className="BookHeader">
                         <div className="TitleAuthor">
-                            <div className="BookTitle">{this.props.details.title}</div>
-                            <div className="BookAuthor">{this.props.details.author?this.props.details.author.join(", "):""}</div>
+                            <div className="BookTitle">{this.props.details.title ? this.props.details.title : "Unknown Title"}</div>
+                            <div className="BookAuthor">{this.props.details.author ? this.props.details.author.join(", "):"Unknown Author"}</div>
                         </div>
-                    <a className="BookPrice" href={"http://www.amazon.com/dp/"+this.props.details.asin}>{this.props.details.price}</a>
+                    <a className="BookPrice" target="_blank" href={"http://www.amazon.com/dp/"+this.props.details.asin}>{this.props.details.price ? this.props.details.price : " Want to buy?"}</a>
                     </div>
                     
                     <div className="FullDescription">
-                        {this.props.details.description}
+                        {this.props.details.description ? this.props.details.description : "Unknown Description"}
                     </div>
                 </div>
             </div>    

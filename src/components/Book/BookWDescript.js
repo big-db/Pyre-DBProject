@@ -31,11 +31,12 @@ class BookWDescript extends Component{
                 
                 <div className="Sub">
                     <div className="TitleAuthor">
-                        <div className="BookTitle">{this.props.details.title}</div>
-                        <div className="BookAuthor">{this.props.details.author?this.props.details.author.join(", "):""}</div>
+                        <div className="BookTitle">{this.props.details.title ? this.props.details.title : "Unknown Title"}</div>
+                        <div className="BookAuthor">{this.props.details.author?this.props.details.author.join(", "):"Unknown Author"}</div>
                     </div>
                     <div className="Description">
-                        { stringCheck ? this.props.details.description : this.truncateString(this.props.details.description,150)}   
+                        { this.props.details.description ? (stringCheck ? this.props.details.description : this.truncateString(this.props.details.description,150)) : "Unknown Description"}
+                          
                     </div>
                     <div>
                         { stringCheck ? null :<button className="readMoreButton" href={"http://localhost:3000/book/"}>Read More</button>}

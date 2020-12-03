@@ -1,7 +1,6 @@
 import {combineReducers} from 'redux';
 import * as type from './actionTypes';
 
-
 function userReducer(state={},action){
     if (action.type===type.GET_USER){
         return {
@@ -21,6 +20,7 @@ function singleBookReducer(state={},action){
     }
     
 }
+
 
 function multipleBookReducer(state=[],action){
     switch(action.type){
@@ -68,6 +68,16 @@ function userAuthReducer(state=userAuthInitialState,action){
             return state;       
     }
 }
+function userSignUpReducer(state={acknowledge:null},action){
+    switch(action.type){
+        case type.ADD_USER_SUCCESS:
+            return {acknowledge:true}
+        case type.ADD_USER_ERROR:
+            return {acknowledge:false}
+        default:
+            return state;       
+    }
+}
 
 export const rootReducer = combineReducers({
     userAuthReducer,
@@ -75,4 +85,5 @@ export const rootReducer = combineReducers({
     multipleBookReducer,
     singleReviewReducer,
     multipleReviewReducer,
+    userSignUpReducer,
 });

@@ -2,7 +2,8 @@ import axios from 'axios';
 import{
     USER_AUTH_SUCCESS,
     USER_AUTH_ERROR,
-    RETRIEVE_ERROR,
+    ADD_USER_SUCCESS,
+    ADD_USER_ERROR,
 } from '../actionTypes';
 
 export const authCheck = (email,password) => async dispatch => {
@@ -24,4 +25,26 @@ export const authCheck = (email,password) => async dispatch => {
                 }
             )
         })
+}
+
+export const authSignUp = (email, password, name) => async dispatch => {
+    
+    return axios.post(process.env.REACT_APP_API_URL+"/auth/",{"email":email,"password":password,"name":name}).then(res =>{
+        console.log(res)
+        if(res.status === 200){
+            dispatch(
+                {
+                    type: ADD_USER_SUCCESS,
+                    payload: res.data
+                }
+            )
+            dispatch(authCheck(email,password))
+        }
+    }).catch(err =>{
+        dispatch(
+            {
+                type: ADD_USER_ERROR,
+            }
+        )
+    })
 }

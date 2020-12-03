@@ -11,7 +11,7 @@ export const UPDATE_SPECIFIC_REVIEW = "UPDATE_SPECIFIC_REVIEW"
 
 export const GET_USER = "GET_USER"
 export const UPDATE_USER = "UPDATE_USER"
-export const ADD_USER = "ADD_USER"
+
 
 export const GET_LOGS = "GET_LOGS"
 export const ADD_LOGS = "ADD_LOGS"
@@ -19,6 +19,9 @@ export const REVISIT_LOG = "REVISIT_LOGS"
 
 export const USER_AUTH_SUCCESS = "USER_AUTH_SUCCESS"
 export const USER_AUTH_ERROR = "USER_AUTH_ERROR"
+export const ADD_USER_SUCCESS = "ADD_USER_SUCCESS"
+export const ADD_USER_ERROR = "ADD_USER_SUCCESS"
+
 
 export const RETRIEVE_ERROR = "RETRIEVE_ERROR"
 export const ADD_ERROR = "ADD_ERROR"

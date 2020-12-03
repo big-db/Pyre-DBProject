@@ -91,7 +91,6 @@ class UserProfile extends Component{
     }
 }
 const mapStateToProps = state => {
-    console.log(state)
     return ({
     user: state.userAuthReducer.user
   })};
