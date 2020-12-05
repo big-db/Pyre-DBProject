@@ -1,4 +1,4 @@
-import axios from 'axios'
+import {axiosAPI} from './axios';
 
 import {
     GET_USER,
@@ -7,7 +7,7 @@ import {
 } from '../actionTypes'
 
 export const getUser = (reviewerID,asin) => async dispatch => {
-    return axios.get(`${process.env.REACT_APP_API_URL}/${reviewerID}/${asin}`).then(res=>{
+    return axiosAPI.get(`/${reviewerID}/${asin}`).then(res=>{
         dispatch(
             {
                 type: GET_USER,
@@ -26,7 +26,7 @@ export const getUser = (reviewerID,asin) => async dispatch => {
 
 export const updateUser = (user, reviewerID, auth) => async dispatch => {
     try{
-        const res = await axios.put(`${process.env.REACT_APP_API_URL}/user/${reviewerID}`,{
+        const res = await axiosAPI.put(`/user/${reviewerID}`,{
             auth: {
               username: auth.username,
               password: auth.password,

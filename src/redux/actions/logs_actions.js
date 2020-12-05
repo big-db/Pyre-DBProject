@@ -1,4 +1,4 @@
-import axios from 'axios';
+import {axiosAPI} from './axios';
 import { GET_LOGS, 
          ADD_LOGS,
          REVISIT_LOGS,
@@ -8,7 +8,7 @@ import { GET_LOGS,
 
 export const getLogs = (reviewerID, auth) => async dispatch => {
     try{
-        const res = await axios.post(`${process.env.REACT_APP_API_URL}/logs/${reviewerID}`,{
+        const res = await axiosAPI.post(`/logs/${reviewerID}`,{
             auth: {
               username: auth.username,
               password: auth.password,
@@ -31,7 +31,7 @@ export const getLogs = (reviewerID, auth) => async dispatch => {
 
 export const addLogs = (logs, auth) => async dispatch => {
     try{
-        const res = await axios.post(`${process.env.REACT_APP_API_URL}/logs/`,{
+        const res = await axiosAPI.post(`/logs/`,{
             auth: {
               username: auth.username,
               password: auth.password,
