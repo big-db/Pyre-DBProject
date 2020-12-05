@@ -4,6 +4,7 @@ import{
     USER_AUTH_ERROR,
     ADD_USER_SUCCESS,
     ADD_USER_ERROR,
+    USER_SIGN_OUT,
 } from '../actionTypes';
 
 export const authCheck = (email,password) => async dispatch => {
@@ -25,6 +26,12 @@ export const authCheck = (email,password) => async dispatch => {
                 }
             )
         })
+}
+
+export const signOut = () => dispatch => {
+    dispatch({
+        type: USER_SIGN_OUT,
+    })
 }
 
 export const authSignUp = (email, password, name) => async dispatch => {

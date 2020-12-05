@@ -63,9 +63,12 @@ function userAuthReducer(state=userAuthInitialState,action){
         case type.USER_AUTH_SUCCESS:
             return {userAuth:true,...action.payload}
         case type.USER_AUTH_ERROR:
-            return {userAuth:false}
+            return userAuthInitialState
+        case type.USER_SIGN_OUT:
+            return userAuthInitialState
         default:
-            return state;       
+            return state;     
+          
     }
 }
 function userSignUpReducer(state={acknowledge:null},action){
