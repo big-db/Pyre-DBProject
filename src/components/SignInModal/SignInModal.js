@@ -1,5 +1,7 @@
 import React,{Component} from 'react';
 import './SignInModal.css'
+import { connect } from 'react-redux';
+import {authCheck, authSignUp} from '../../redux/actions/auth_actions'
 class SignInModal extends Component{
     constructor(props){
         super(props)
@@ -18,25 +20,19 @@ class SignInModal extends Component{
     
     validateForm(e){
         e.preventDefault();
-        let isUserValid = true;
+        console.log(process.env.REACT_APP_API_URL)
+        let isUserValid = false;
         if(this.state.newUserState){
-            //dispatch adduser
-            //dispatch auth user
-            if(this.state.password!==this.state.cnfrmPassword){
-                isUserValid = false;
+            if(this.state.password===this.state.cnfrmPassword){
+                isUserValid = true;
+            }
+            if(isUserValid){
+                this.props.authSignUp(this.state.email,this.state.password,this.state.name)
             }
         }else{
-            //dispatch auth user
+            this.props.authCheck(this.state.email,this.state.password)
         }
-        
-        //update isUserValid
-        if (isUserValid){
-            window.location=("http://localhost:3000/home")
-        }else{
-            this.setState({
-                authError: true,
-            })
-        }
+
     }
  
     updateInput(types,input,cnfrm=false){
@@ -62,6 +58,7 @@ class SignInModal extends Component{
     }
     
     render(){
+        
         return <div className="signInModal">
             <button className="closeButton" onClick={this.props.clickHandler}>Close</button>
             {this.state.newUserState ? 
@@ -82,7 +79,7 @@ class SignInModal extends Component{
                 <div className="userInteractions">
                 <form className="signInDetails" onSubmit={(e)=>this.validateForm(e)}>
                     <input className="inputDetails" onChange={e => this.updateInput("email",e.target.value)} type="email" placeholder="Email" value={this.state.email} required></input>
-                    <input className="inputDetails" onChange={e => this.updateInput("pw",e.target.value)} type="password" placeholder="Password" value={this.state.password} required></input>
+                    <input className="inputDetails" onChange={e => this.updateInput("pw",e.target.value)} type="password" placeholder="Password" value={this.state.password} required ></input>
                     {this.state.authError ? <div>Authetication Error</div>:null}
                     <input className="submitButton" type="submit" value="Sign In"/>
                 </form>
@@ -96,4 +93,6 @@ class SignInModal extends Component{
     }
 }
 
-export default SignInModal
+
+
+export default connect(null,{authCheck, authSignUp})(SignInModal)

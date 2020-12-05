@@ -8,12 +8,12 @@ class SimplifiedReview extends Component{
         for (var i=0; i<this.props.details.overall; i++ ){
             fires.push(<img className="Flame" src={Flame}></img>)
         }
-        return <a className="SimplifiedReview" href={""}>
+        return <a className="SimplifiedReview" href={"/reviews/"+this.props.details.reviewerID+"/"+this.props.details.asin}>
                 <div>
                     <div className="Overall">{fires}</div>
                     <div className="Summary">{this.props.details.summary}</div>
                 </div>
-                <div className="Reviewer">- {this.props.details.reviewerName}</div>
+                <div className="Reviewer">- {this.props.details.reviewerID}</div>
                 
             </a>    
         
