@@ -1,5 +1,6 @@
 import React, {Component} from 'react';
 import './Book.css'
+import Flame from '../../assets/pyre-svgs/fire.svg';
 class BookWDescript extends Component{
     
     stringLengthCheck(str,num){
@@ -21,6 +22,14 @@ class BookWDescript extends Component{
        
     }
     render(){
+        if(this.props.details.avg_rating){
+            var fires = []
+            for (var i=0; i<Math.floor(this.props.details.avg_rating); i++ ){
+                fires.push(<img className="Flame" src={Flame} alt={"fire"+i}></img>)
+            }
+        }
+        fires = null
+    
         let stringCheck = this.stringLengthCheck(this.props.details.description,150)
         
         return <a className="BookWDescript" href={process.env.PUBLIC_URL+'/book/'+this.props.details.asin}>
@@ -33,6 +42,7 @@ class BookWDescript extends Component{
                     <div className="TitleAuthor">
                         <div className="BookTitle">{this.props.details.title ? this.props.details.title : "Unknown Title"}</div>
                         <div className="BookAuthor">{this.props.details.author?this.props.details.author.join(", "):"Unknown Author"}</div>
+                        <div className="BookRating">{this.props.details.review_count} Reviews {fires}</div>
                     </div>
                     <div className="Description">
                         { this.props.details.description ? (stringCheck ? this.props.details.description : this.truncateString(this.props.details.description,150)) : "Unknown Description"}

@@ -65,3 +65,16 @@
     transition: 0.2s all;
 }
 
+.signOutButton{
+    background-color: transparent;
+    color:black;
+    border:none;
+    font-family: "Coolvetica";
+    font-size: 3vh;
+    height:80%;
+}
+.signOutButton:hover{
+    transform: scale(1.2);
+    color:#FFC123;
+    transition: 0.2s all;
+}

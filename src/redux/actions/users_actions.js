@@ -1,16 +1,19 @@
 import {axiosAPI} from './axios';
 
 import {
-    GET_USER,
-    UPDATE_USER,
+    GET_USER_REVIEWS,
     RETRIEVE_ERROR,
+    LOADING_REVIEWS,
 } from '../actionTypes'
 
-export const getUser = (reviewerID,asin) => async dispatch => {
-    return axiosAPI.get(`/${reviewerID}/${asin}`).then(res=>{
+export const getUserReviews = (reviewerID) => async dispatch => {
+    dispatch({
+        type: LOADING_REVIEWS
+    })
+    return axiosAPI.get(`/users/${reviewerID}`).then(res=>{
         dispatch(
             {
-                type: GET_USER,
+                type: GET_USER_REVIEWS,
                 payload: res.data
             }
         )
@@ -22,29 +25,4 @@ export const getUser = (reviewerID,asin) => async dispatch => {
     })
 }
 
-
-
-export const updateUser = (user, reviewerID, auth) => async dispatch => {
-    try{
-        const res = await axiosAPI.put(`/user/${reviewerID}`,{
-            auth: {
-              username: auth.username,
-              password: auth.password,
-            },
-            data: user            
-          })
-        dispatch(
-            {
-                type: UPDATE_USER,
-                payload: res.data
-            }
-        )
-    }
-    catch(e){
-        dispatch({
-               type: RETRIEVE_ERROR,
-               payload: console.log(e)
-        })
-    }
-}
 

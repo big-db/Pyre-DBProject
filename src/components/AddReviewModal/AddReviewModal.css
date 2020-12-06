@@ -1,4 +1,4 @@
-.addBookModal{
+.addReviewModal{
     position: fixed;
     height:100%;
     width:100%;
@@ -22,7 +22,7 @@
     
 }
 
-.addBookDetails{
+.addReviewDetails{
     padding: 2vh;
     display: flex;
     flex-direction: column;
@@ -52,6 +52,7 @@
     color:white;
     background-color: #C90000;
     border:none;
+    font-size: 3vh;
 }
 .submitButton:hover{
     transform: scale(1.2);
@@ -68,10 +69,10 @@
     align-items: center;
     justify-content: center;
 }
-.addBookDetails input{
+.addReviewDetails input{
     font-size: 3vh;
 }
-.addBookDetails textarea{
+.addReviewDetails textarea{
     font-size: 2vh;
 }
 
@@ -84,20 +85,21 @@
     border:none;
     padding: 9px 15px 9px 15px;
 }
-.authorDetails{
+
+.addRating{
     display: flex;
-    flex-direction: row;
-    flex-wrap: nowrap;
+    width:40vh;
+    flex-direction: row; 
+    margin: 1% 0% 1% 0.75%;
+    background-color: white;
+    box-shadow: 5px 5px black;
+    border: 1px solid black;
+    border-radius: 10px;
+    color:black;
+    padding: 1%;
+    font-size: 2vh;
+    font-family: "Old";
     align-items: center;
-    margin:0;
-}
-.addAuthorButton{
-    background-color: transparent;
-    border: none;
-    font-size: 3vh;
-    height: 60%;
-}
-.addAuthorButton:hover{
-    transform: scale(1.2);
-    color:#FFC123;
+    justify-content: flex-start;
+    text-decoration: none;
 }

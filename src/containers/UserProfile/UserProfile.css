@@ -18,3 +18,8 @@
 .UserProfileReview{
     overflow: auto;
 }
+.UserReview{
+    display: flex;
+    flex-direction: row;
+    
+}

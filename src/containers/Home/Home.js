@@ -8,7 +8,6 @@ import { CSSTransition } from 'react-transition-group';
 import './Home.css';
 import { Redirect } from 'react-router';
 import { getWeekly } from '../../redux/actions/index';
-import UserProfile from '../UserProfile/UserProfile';
 class Home extends Component{
     constructor(props){
         super(props);
@@ -85,13 +84,16 @@ class Home extends Component{
                     Wanna know how good they are?
                 </div>
                 <div className="recommendList">
-                    {this.props.weekly.map((book,index) =>{
+                    {this.props.weekly ? 
+                    (this.props.weekly.map((book,index) =>{
                         if(this.props.window.height*0.35 * (index+1) <= this.props.window.width){
                             return <SimplifiedBook key={index} details ={book}/>
                         }else{
                             return null
                         }
-                    })}
+                    }))
+                    :null}
+                    
                 </div>
                 
                 {/* <div className="reviewList">

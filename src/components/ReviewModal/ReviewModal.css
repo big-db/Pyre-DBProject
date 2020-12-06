@@ -1,4 +1,4 @@
-.addBookModal{
+.ReviewBookModal{
     position: fixed;
     height:100%;
     width:100%;
@@ -22,7 +22,7 @@
     
 }
 
-.addBookDetails{
+.ReviewBookDetails{
     padding: 2vh;
     display: flex;
     flex-direction: column;
@@ -68,10 +68,10 @@
     align-items: center;
     justify-content: center;
 }
-.addBookDetails input{
+.ReviewBookDetails input{
     font-size: 3vh;
 }
-.addBookDetails textarea{
+.ReviewBookDetails textarea{
     font-size: 2vh;
 }
 
