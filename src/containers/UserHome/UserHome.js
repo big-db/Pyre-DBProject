@@ -9,62 +9,13 @@ import { CSSTransition } from 'react-transition-group';
 import AddBookModal from '../../components/AddBookModal/AddBookModal';
 import { connect } from 'react-redux';
 import { Redirect } from 'react-router';
+import { getWeekly } from '../../redux/actions/index';
 class UserHome extends Component{
     constructor(props) {
         super(props);
         this.state = {
             userID:this.props.match.params.userID,
             addBookModal: false,
-            recommend:{
-                title:"1984",
-                price: "$9.56",
-                bookLink: "https://www.amazon.com/1984-George-Orwell/dp/1443434973/ref=sr_1_7?dchild=1&keywords=1984&qid=1603221917&s=books&sr=1-7",
-                imageLink: "https://images-na.ssl-images-amazon.com/images/I/91AXG-rkZJL.jpg",
-                description: "It is 1984, and the worlds' three major powers-Oceania, Eurasia and Eastasia-are constantly at war. In Oceania, where the Party is in power, the thought police unearth every act of dissent, and Big Brother is always watching. Winston Smith, a dutiful citizen of Oceania, works for the Ministry of Truth as a propaganda writer who rewrites history to suit the needs of the authoritarian government. But when Winston falls in love with fellow worker Julia, they begin to question the very system they work for, placing them in immense danger. Pursuing their forbidden love affair, Winston plans a rebellion against the Party in order to regain the freedom to shape his own future. But the ever-watchful Big Brother will not tolerate opposition, and for those who speak up against the system or dare to think what the Party does not want them to think, Room 101 awaits them . . . \n 1984 is George Orwell's haunting prophesy of the future, which has held multiple generations of readers spellbound in its chilling and terrifying vision of life under a totalitarian regime. Powerful and unforgettable, this still-relevant novel explores the obliteration of truth, individuality and liberty in a world where the ruling power seeks to control everything, from information to thought and memory.",
-                author:["George Orwell"],
-            },
-            revisit:[
-                {
-                    title:"1984",
-                    price: "$9.56",
-                    bookLink: "https://www.amazon.com/1984-George-Orwell/dp/1443434973/ref=sr_1_7?dchild=1&keywords=1984&qid=1603221917&s=books&sr=1-7",
-                    imageLink: "https://images-na.ssl-images-amazon.com/images/I/91AXG-rkZJL.jpg",
-                    description: "It is 1984, and the worlds' three major powers-Oceania, Eurasia and Eastasia-are constantly at war. In Oceania, where the Party is in power, the thought police unearth every act of dissent, and Big Brother is always watching. Winston Smith, a dutiful citizen of Oceania, works for the Ministry of Truth as a propaganda writer who rewrites history to suit the needs of the authoritarian government. But when Winston falls in love with fellow worker Julia, they begin to question the very system they work for, placing them in immense danger. Pursuing their forbidden love affair, Winston plans a rebellion against the Party in order to regain the freedom to shape his own future. But the ever-watchful Big Brother will not tolerate opposition, and for those who speak up against the system or dare to think what the Party does not want them to think, Room 101 awaits them . . . \n 1984 is George Orwell's haunting prophesy of the future, which has held multiple generations of readers spellbound in its chilling and terrifying vision of life under a totalitarian regime. Powerful and unforgettable, this still-relevant novel explores the obliteration of truth, individuality and liberty in a world where the ruling power seeks to control everything, from information to thought and memory.",
-                    author:["George Orwell"],
-                },
-                {
-                    title:"1984",
-                    price: "$9.56",
-                    bookLink: "https://www.amazon.com/1984-George-Orwell/dp/1443434973/ref=sr_1_7?dchild=1&keywords=1984&qid=1603221917&s=books&sr=1-7",
-                    imageLink: "https://images-na.ssl-images-amazon.com/images/I/91AXG-rkZJL.jpg",
-                    description: "It is 1984, and the worlds' three major powers-Oceania, Eurasia and Eastasia-are constantly at war. In Oceania, where the Party is in power, the thought police unearth every act of dissent, and Big Brother is always watching. Winston Smith, a dutiful citizen of Oceania, works for the Ministry of Truth as a propaganda writer who rewrites history to suit the needs of the authoritarian government. But when Winston falls in love with fellow worker Julia, they begin to question the very system they work for, placing them in immense danger. Pursuing their forbidden love affair, Winston plans a rebellion against the Party in order to regain the freedom to shape his own future. But the ever-watchful Big Brother will not tolerate opposition, and for those who speak up against the system or dare to think what the Party does not want them to think, Room 101 awaits them . . . \n 1984 is George Orwell's haunting prophesy of the future, which has held multiple generations of readers spellbound in its chilling and terrifying vision of life under a totalitarian regime. Powerful and unforgettable, this still-relevant novel explores the obliteration of truth, individuality and liberty in a world where the ruling power seeks to control everything, from information to thought and memory.",
-                    author:["George Orwell"],
-                },
-                {
-                    title:"1984",
-                    price: "$9.56",
-                    bookLink: "https://www.amazon.com/1984-George-Orwell/dp/1443434973/ref=sr_1_7?dchild=1&keywords=1984&qid=1603221917&s=books&sr=1-7",
-                    imageLink: "https://images-na.ssl-images-amazon.com/images/I/91AXG-rkZJL.jpg",
-                    description: "It is 1984, and the worlds' three major powers-Oceania, Eurasia and Eastasia-are constantly at war. In Oceania, where the Party is in power, the thought police unearth every act of dissent, and Big Brother is always watching. Winston Smith, a dutiful citizen of Oceania, works for the Ministry of Truth as a propaganda writer who rewrites history to suit the needs of the authoritarian government. But when Winston falls in love with fellow worker Julia, they begin to question the very system they work for, placing them in immense danger. Pursuing their forbidden love affair, Winston plans a rebellion against the Party in order to regain the freedom to shape his own future. But the ever-watchful Big Brother will not tolerate opposition, and for those who speak up against the system or dare to think what the Party does not want them to think, Room 101 awaits them . . . \n 1984 is George Orwell's haunting prophesy of the future, which has held multiple generations of readers spellbound in its chilling and terrifying vision of life under a totalitarian regime. Powerful and unforgettable, this still-relevant novel explores the obliteration of truth, individuality and liberty in a world where the ruling power seeks to control everything, from information to thought and memory.",
-                    author:["George Orwell"],
-                },
-                {
-                    title:"1984",
-                    price: "$9.56",
-                    bookLink: "https://www.amazon.com/1984-George-Orwell/dp/1443434973/ref=sr_1_7?dchild=1&keywords=1984&qid=1603221917&s=books&sr=1-7",
-                    imageLink: "https://images-na.ssl-images-amazon.com/images/I/91AXG-rkZJL.jpg",
-                    description: "It is 1984, and the worlds' three major powers-Oceania, Eurasia and Eastasia-are constantly at war. In Oceania, where the Party is in power, the thought police unearth every act of dissent, and Big Brother is always watching. Winston Smith, a dutiful citizen of Oceania, works for the Ministry of Truth as a propaganda writer who rewrites history to suit the needs of the authoritarian government. But when Winston falls in love with fellow worker Julia, they begin to question the very system they work for, placing them in immense danger. Pursuing their forbidden love affair, Winston plans a rebellion against the Party in order to regain the freedom to shape his own future. But the ever-watchful Big Brother will not tolerate opposition, and for those who speak up against the system or dare to think what the Party does not want them to think, Room 101 awaits them . . . \n 1984 is George Orwell's haunting prophesy of the future, which has held multiple generations of readers spellbound in its chilling and terrifying vision of life under a totalitarian regime. Powerful and unforgettable, this still-relevant novel explores the obliteration of truth, individuality and liberty in a world where the ruling power seeks to control everything, from information to thought and memory.",
-                    author:["George Orwell"],
-                },
-                {
-                    title:"1984",
-                    price: "$9.56",
-                    bookLink: "https://www.amazon.com/1984-George-Orwell/dp/1443434973/ref=sr_1_7?dchild=1&keywords=1984&qid=1603221917&s=books&sr=1-7",
-                    imageLink: "https://images-na.ssl-images-amazon.com/images/I/91AXG-rkZJL.jpg",
-                    description: "It is 1984, and the worlds' three major powers-Oceania, Eurasia and Eastasia-are constantly at war. In Oceania, where the Party is in power, the thought police unearth every act of dissent, and Big Brother is always watching. Winston Smith, a dutiful citizen of Oceania, works for the Ministry of Truth as a propaganda writer who rewrites history to suit the needs of the authoritarian government. But when Winston falls in love with fellow worker Julia, they begin to question the very system they work for, placing them in immense danger. Pursuing their forbidden love affair, Winston plans a rebellion against the Party in order to regain the freedom to shape his own future. But the ever-watchful Big Brother will not tolerate opposition, and for those who speak up against the system or dare to think what the Party does not want them to think, Room 101 awaits them . . . \n 1984 is George Orwell's haunting prophesy of the future, which has held multiple generations of readers spellbound in its chilling and terrifying vision of life under a totalitarian regime. Powerful and unforgettable, this still-relevant novel explores the obliteration of truth, individuality and liberty in a world where the ruling power seeks to control everything, from information to thought and memory.",
-                    author:["George Orwell"],
-                },
-            ]
         }
         this.addBlockModalHandler = this.addBlockModalHandler.bind(this);
     }
@@ -76,6 +27,9 @@ class UserHome extends Component{
     }
 
     render(){
+        if(this.props.weekly){
+            var rdIndex = Math.floor(Math.random() * this.props.weekly.length)
+        }
         if(!this.props.user){
             return <Redirect to="/"/>
         }
@@ -104,30 +58,23 @@ class UserHome extends Component{
                <div className="UserHome">
                    
                    <div className="UserHomeTitle"> 
-                        Welcome Back, {this.state.userID}
+                        <div>
+                            Welcome Back, <span className="UserHomeName">{this.props.user.name}</span>
+                        </div>
                         <div>
                             Read a book not seen here?  <button className="addBookButton" onClick={this.addBlockModalHandler}>add it to our collection here</button>
                         </div>
                    </div>
-                   <div className="userhomeRecommendSubtitle">
-                        Recommended book for you
-                    </div>
-                    <div className="userHomeMainRecommend">
-                        <BookWDescript details ={this.state.recommend}/>
-                    </div>
+                    {this.props.weekly ? (this.props.weekly.length>0 ?
                     <div className="userhomeRecommendSubtitle">
-                        Books you previously revisited
+                    Here's a random book for your recently seen to check out!
                     </div>
-                    <div className="userRecommendList">
-                        {this.state.revisit.map((book,index) =>{
-                        if(this.props.window.height*0.35*0.86*0.75*(index+1) <= this.props.window.width*0.92){
-                            return <SimplifiedBook key={index} details ={book}/>
-                        }else{
-                            return null
-                        }
-                        })}
+                    :null):null}
+                    {this.props.weekly ? (this.props.weekly.length>0 ?
+                    <div className="userHomeMainRecommend">
+                         <BookWDescript details ={this.props.weekly[rdIndex]}/> 
                     </div>
-                    
+                    :null):null}
                </div>
             </div>
         )
@@ -136,7 +83,8 @@ class UserHome extends Component{
 }
 const mapStateToProps = state => {
     return ({
-    user: state.userAuthReducer.user
+    user: state.userAuthReducer.user,
+    weekly: state.multipleBookReducer
   })};
 
-export default connect(mapStateToProps,null)(withRouter(UserHome));
+export default connect(mapStateToProps,{getWeekly})(withRouter(UserHome));

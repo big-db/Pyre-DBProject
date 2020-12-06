@@ -10,7 +10,6 @@ import{
 export const authCheck = (email,password) => async dispatch => {
     
         return axiosAPI.post(`/auth/login`,{"email":email,"password":password}).then(res =>{
-            console.log(res)
             if(res.status === 200){
                 dispatch(
                     {
@@ -28,7 +27,7 @@ export const authCheck = (email,password) => async dispatch => {
         })
 }
 
-export const signOut = () => dispatch => {
+export const authSignOut = () => dispatch => {
     dispatch({
         type: USER_SIGN_OUT,
     })
@@ -36,8 +35,7 @@ export const signOut = () => dispatch => {
 
 export const authSignUp = (email, password, name) => async dispatch => {
     
-    return axiosAPI.post(`/auth/`,{"email":email,"password":password,"name":name}).then(res =>{
-        console.log(res)
+    return axiosAPI.post(`/auth/signup`,{"email":email,"password":password,"name":name}).then(res =>{
         if(res.status === 200){
             dispatch(
                 {

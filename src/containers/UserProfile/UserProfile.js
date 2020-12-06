@@ -5,57 +5,41 @@ import './UserProfile.css';
 import Wave from 'react-wavify';
 import { connect } from 'react-redux';
 import SimplifiedReview from '../../components/Review/SimplifiedReview';
+import { CSSTransition } from 'react-transition-group';
+import ReviewModal from '../../components/ReviewModal/ReviewModal';
+import {getUserReviews,getReview} from '../../redux/actions/index';
 class UserProfile extends Component{
     constructor(props){
         super(props);
         this.state = {
             userID:this.props.match.params.userID,
-            reviewerName: "Caleb",
-            reviews:[
-                {
-                    overall: 5,
-                    summary: "I really liked it.",
-                    reviewText: "I'd never read any of the Amy Brewster mysteries until this one.. So I am really hooked on them now...",
-                    reviewerName:"Elaine H. Turley (Montana Songbird)"
-                },
-                {
-                    overall: 5,
-                    summary: "I really liked it.",
-                    reviewText: "I'd never read any of the Amy Brewster mysteries until this one.. So I am really hooked on them now...",
-                    reviewerName:"Elaine H. Turley (Montana Songbird)"
-                },
-                {
-                    overall: 5,
-                    summary: "I really liked it.",
-                    reviewText: "I'd never read any of the Amy Brewster mysteries until this one.. So I am really hooked on them now...",
-                    reviewerName:"Elaine H. Turley (Montana Songbird)"
-                },
-                {
-                    overall: 5,
-                    summary: "I really liked it.",
-                    reviewText: "I'd never read any of the Amy Brewster mysteries until this one.. So I am really hooked on them now...",
-                    reviewerName:"Elaine H. Turley (Montana Songbird)"
-                },
-                {
-                    overall: 5,
-                    summary: "I really liked it.",
-                    reviewText: "I'd never read any of the Amy Brewster mysteries until this one.. So I am really hooked on them now...",
-                    reviewerName:"Elaine H. Turley (Montana Songbird)"
-                },
-                {
-                    overall: 5,
-                    summary: "I really liked it.",
-                    reviewText: "I'd never read any of the Amy Brewster mysteries until this one.. So I am really hooked on them now...",
-                    reviewerName:"Elaine H. Turley (Montana Songbird)"
-                },
-                {
-                    overall: 5,
-                    summary: "I really liked it.",
-                    reviewText: "I'd never read any of the Amy Brewster mysteries until this one.. So I am really hooked on them now...",
-                    reviewerName:"Elaine H. Turley (Montana Songbird)"
-                }
-                
-            ]
+            reviewPage:1,
+        }
+        this.onReviewPageHandler = this.onReviewPageHandler.bind(this);
+        this.reviewModalHandler = this.reviewModalHandler.bind(this);
+        this.myRef = React.createRef();
+    }
+    componentDidMount(){
+        this.props.getUserReviews(this.state.userID,this.state.reviewPage);
+    }
+    reviewModalHandler(review){
+        this.setState({
+           reviewModal: !this.state.reviewModal,
+        })
+        if(review){
+            this.props.getReview(this.state.userID,review.asin)
+            
+        }
+    }
+    onReviewPageHandler(modifier){
+        
+        if(this.state.reviewPage +modifier >= 0){
+            this.setState({
+                reviewPage: this.state.reviewPage + modifier,
+            })
+            this.props.getUserReviews(this.state.userID,this.state.reviewPage+modifier);
+            this.myRef.current.scrollTo(0, 0);
+
         }
     }
     render(){
@@ -64,6 +48,14 @@ class UserProfile extends Component{
         }
         return (
             <div>
+                <CSSTransition
+                in={this.state.reviewModal}
+                timeout={300}
+                classNames="signModal"
+                unmountOnExit
+                >
+                    <ReviewModal clickHandler={this.reviewModalHandler} review={this.props.selectedReview}/>
+                </CSSTransition>
                 <NavBar user={this.props.user}/>
                 <div className="waveTop">
                     <Wave fill='#C90000'
@@ -79,12 +71,22 @@ class UserProfile extends Component{
                 <div className="UserProfile">
                     <div className="UserProfileName">{this.props.user.name}</div>
                     <div className="UserProfileID">{this.props.user.id}</div>
-                    <div className="UserProfileReview">
-                            {this.state.reviews.map((review,index) =>{
-                                    return <SimplifiedReview key={index} details ={review}/> 
+                    <div className="UserProfileReview" ref={this.myRef}>
+                            {this.props.reviews.map((review,index) =>{
+                                    return <div key={index} className="UserReview">
+                                            <div className="Book">
+                                                <img height="100%" src={review.imUrl} alt={review.imUrl}/>
+                                            </div>
+                                            
+                                            <SimplifiedReview key={index} details ={review} clickHandler={()=>this.reviewModalHandler(review)}/> 
+                                        </div>
                             })} 
                         </div>
                 </div>
+                    <div className="ReviewButtons">
+                        {(this.state.reviewPage-1>0) ? <button className="BonFireButton" onClick={()=>{this.onReviewPageHandler(-1)}}>Previous</button> : null}
+                        {(this.props.reviews.length===10) ? <button className="BonFireButton" onClick={()=>{this.onReviewPageHandler(1)}}>Next</button> :null}
+                    </div>
             </div>
         
         )
@@ -92,6 +94,8 @@ class UserProfile extends Component{
 }
 const mapStateToProps = state => {
     return ({
-    user: state.userAuthReducer.user
+    user: state.userAuthReducer.user,
+    selectedReview: state.singleReviewReducer,
+    reviews: state.multipleReviewReducer,
   })};
-export default connect(mapStateToProps,null)(withRouter(UserProfile));
+export default connect(mapStateToProps,{getUserReviews, getReview})(withRouter(UserProfile));

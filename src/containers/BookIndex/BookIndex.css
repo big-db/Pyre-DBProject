@@ -13,6 +13,7 @@
     color:white;
     z-index: 1;
     background-color: #C90000;
+    overflow: auto;
 }
 
 .BookIndexTitle{
@@ -29,7 +30,7 @@
 }
 
 .BookDesc{
-    height:45%;
+    height:40%;
     align-content: center;
     justify-content: flex-start;
     display: flex;
@@ -37,7 +38,6 @@
    
 }
 .BooksAdditional{
-    height:37%;
     align-content: center;
     justify-content: flex-start;
     display: flex;
@@ -45,10 +45,15 @@
 }
 
 .ReviewAdditional{
-    height:37%;
     align-content: center;
     justify-content: flex-start;
     display: flex;
     flex-direction: column;
-    overflow: auto;
+}
+
+.ReviewButton{
+  position: relative;
+  bottom:0;
+  display: flex;
+  flex-direction: row;
 }

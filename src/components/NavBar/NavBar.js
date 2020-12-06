@@ -3,7 +3,9 @@ import {isMobile} from 'react-device-detect';
 import IconFullLight from '../../assets/pyre-svgs/icon_light-full.svg';
 import IconSmallLight from '../../assets/pyre-svgs/icon_light-small.svg';
 import './Navbar.css';
+import {connect} from 'react-redux';
 import SearchBar from '../SearchBar/SearchBar';
+import {authSignOut} from '../../redux/actions/auth_actions';
 
 class NavBar extends Component{
     
@@ -16,6 +18,7 @@ class NavBar extends Component{
                         <SearchBar/>
                         <a href="/bonfire">bonfire</a>
                         <a href={"/user/" + this.props.user.id}>{this.props.user.name}</a>
+                        <button className="signOutButton" onClick={this.props.authSignOut}>X</button>
                     </div>
                     
                     
@@ -26,4 +29,4 @@ class NavBar extends Component{
     }
         
 }
-export default NavBar
+export default connect(null,{authSignOut})(NavBar)
